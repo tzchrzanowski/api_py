@@ -17,3 +17,10 @@ class MoviesListResource(Resource):
                             description=data['description'])
         movies_list.append(newMovie)
         return newMovie.data, HTTPStatus.CREATED
+
+class MovieSingleResource(Resource):
+    def get(self, movie_id):
+        movie = next((movie for movie in movies_list if movie.id == movie_id ), None)
+        if movie is None:
+            return {'message': 'movie not found'}, HTTPStatus.NOT_FOUND
+        return movie.data, HTTPStatus.OK

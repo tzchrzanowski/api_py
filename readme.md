@@ -30,6 +30,11 @@
 # GET request:
     http GET localhost:5000/movies
 
+# GET single item with known id request:
+# GET request:
+    http GET localhost:5000/movies/1
+
+
 # 2. Test using postman:
 # POST request:
     url = http://localhost:5000/movies
@@ -39,6 +44,3 @@
      "year": 2022,
      "description": "description..."
 }
-
-# GET request
-    url = http://localhost:5000/movies
