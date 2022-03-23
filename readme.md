@@ -53,3 +53,6 @@
      "year": 1111,
      "description": "1 1 1 1 1 1 1"
 }
+
+# DELETE request:
+    url example = http://localhost:5000/movies/1

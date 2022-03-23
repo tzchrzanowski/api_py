@@ -34,3 +34,12 @@ class MovieSingleResource(Resource):
         movie.year = data['year']
         movie.description = data['description']
         return movie.data, HTTPStatus.OK
+
+    def delete(self, movie_id):
+        movie = next((movie for movie in movies_list if movie.id == movie_id), None)
+        if movie is None:
+            return {'message': 'movie not found, cant be deleted'}, HTTPStatus.NOT_FOUND
+        for existingMovie in movies_list:
+            if existingMovie.id == movie_id:
+                movies_list.remove(existingMovie)
+        return {}, HTTPStatus.NO_CONTENT
