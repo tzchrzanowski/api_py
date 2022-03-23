@@ -24,3 +24,13 @@ class MovieSingleResource(Resource):
         if movie is None:
             return {'message': 'movie not found'}, HTTPStatus.NOT_FOUND
         return movie.data, HTTPStatus.OK
+
+    def put(self, movie_id):
+        data = request.get_json()
+        movie = next((movie for movie in movies_list if movie.id == movie_id), None)
+        if movie is None:
+            return {'message': 'movie not found'}, HTTPStatus.NOT_FOUND
+        movie.title = data['title']
+        movie.year = data['year']
+        movie.description = data['description']
+        return movie.data, HTTPStatus.OK

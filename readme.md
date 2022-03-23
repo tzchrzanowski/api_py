@@ -44,3 +44,12 @@
      "year": 2022,
      "description": "description..."
 }
+
+# PUT request: 
+    url example = http://localhost:5000/movies/1
+    Body json: 
+{
+     "title": "1111",
+     "year": 1111,
+     "description": "1 1 1 1 1 1 1"
+}
